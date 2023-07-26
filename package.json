@@ -6,7 +6,8 @@
 	"scripts": {
 		"dev": "nodemon --watch src --exec npx ts-node src/bot.ts",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "tsc"
+		"build": "tsc",
+		"start": ""
 	},
 	"keywords": [],
 	"author": "",
@@ -20,6 +21,7 @@
 		"typescript": "^5.1.6"
 	},
 	"devDependencies": {
+		"@types/luxon": "^3.3.1",
 		"@types/node-telegram-bot-api": "^0.61.6"
 	}
 }
