@@ -3,8 +3,10 @@ import TelegramBot from "node-telegram-bot-api";
 import dotenv from "dotenv";
 dotenv.config();
 
-import startHandler from "./handlers/start";
-import helpHandler from "./handlers/help";
+import startHandler from "./handlers/start.handler";
+import helpHandler from "./handlers/help.handler";
+import dbConnect from "./services/db.service";
+import subscribe from "./handlers/subscribe.handler";
 
 const botToken = process.env.TELEGRAM_BOT_TOKEN;
 if (!botToken) {
@@ -16,8 +18,10 @@ if (!botToken) {
 console.log("%cBot is running!", "color: green");
 
 const bot = new TelegramBot(botToken, { polling: true });
+dbConnect();
 
 bot.onText(/\/start/, (message) => startHandler(message, bot));
+bot.onText(/\/subscribe/, (message) => subscribe());
 bot.onText(/\/help/, (message) => helpHandler(message, bot));
 
 bot.on("message", (msg: any) => {
