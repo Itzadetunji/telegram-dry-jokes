@@ -8,6 +8,8 @@ import helpHandler from "./handlers/help.handler";
 import dbConnect from "./services/db.service";
 import subscribe from "./handlers/subscribe.handler";
 import jokeHandler from "./handlers/joke.handler";
+import createCronJob from "./services/cron-job.service";
+import unsubscribe from "./handlers/unsubscribe.handler";
 
 const botToken = process.env.TELEGRAM_BOT_TOKEN;
 if (!botToken) {
@@ -20,9 +22,12 @@ console.log("%cBot is running!", "color: green");
 
 const bot = new TelegramBot(botToken, { polling: true });
 dbConnect();
+const job = createCronJob(bot); // Pass the bot object to the cron job
+job.start();
 
 bot.onText(/\/start/, (message) => startHandler(message, bot));
-bot.onText(/\/subscribe/, (message) => subscribe());
+bot.onText(/\/subscribe/, (message) => subscribe(message, bot));
+bot.onText(/\/unsubscribe/, (message) => unsubscribe(message, bot));
 bot.onText(/\/joke/, (message) => jokeHandler(message, bot));
 bot.onText(/\/help/, (message) => helpHandler(message, bot));
 
