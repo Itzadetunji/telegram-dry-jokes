@@ -2,7 +2,7 @@ import TelegramBot, { Message } from "node-telegram-bot-api";
 import JokeModel from "../models/joke.model";
 
 // Function to fetch a random joke
-const getRandomJoke = async (): Promise<any> => {
+export const getRandomJoke = async (): Promise<any> => {
 	try {
 		const randomJoke = await JokeModel.aggregate([{ $sample: { size: 1 } }]);
 		return randomJoke[0] || null;
