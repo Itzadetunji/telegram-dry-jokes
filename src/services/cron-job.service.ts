@@ -17,6 +17,7 @@ const sendMessagesToSubscribedUsers = async (bot: TelegramBot) => {
 		const subscribedUsers = await UserModel.find({ subscribed: true });
 		const randomJoke = await getRandomJoke();
 		if (randomJoke) {
+			console.log("joke sent from subscription")
 			subscribedUsers.forEach((user) => {
 				const chatId = user.user_id.toString();
 				bot.sendMessage(chatId, randomJoke.text);

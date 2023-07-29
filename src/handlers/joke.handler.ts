@@ -18,6 +18,7 @@ const jokeHandler = async (msg: Message, bot: TelegramBot) => {
 	try {
 		const randomJoke = await getRandomJoke();
 		if (randomJoke) {
+			console.log("joke is sending to user");
 			const jokeText = randomJoke.text + "\n\nFor another joke send /joke";
 			bot.sendMessage(chatId, jokeText);
 		} else {
