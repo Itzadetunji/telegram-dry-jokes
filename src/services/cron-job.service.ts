@@ -9,7 +9,7 @@ const sendMessageToUser = (
 	message: string
 ) => {
 	bot.sendMessage(chatId, message);
-	// console.log(message);
+	console.log(message);
 };
 
 const sendMessagesToSubscribedUsers = async (bot: TelegramBot) => {
@@ -19,7 +19,7 @@ const sendMessagesToSubscribedUsers = async (bot: TelegramBot) => {
 		if (randomJoke) {
 			subscribedUsers.forEach((user) => {
 				const chatId = user.user_id.toString();
-				// bot.sendMessage(chatId, randomJoke.text);
+				bot.sendMessage(chatId, randomJoke.text);
 			});
 		} else {
 			console.error("Error");

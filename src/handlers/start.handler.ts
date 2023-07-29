@@ -11,7 +11,7 @@ const startHandler = async (msg: Message, bot: TelegramBot) => {
 		user_id: msg.chat.id,
 		username: msg.chat.username,
 		first_name: msg.chat.first_name || "",
-		subscribed: true,
+		subscribed: false,
 		last_joke_received: new Date(),
 	};
 
