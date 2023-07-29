@@ -10,6 +10,7 @@ import subscribe from "./handlers/subscribe.handler";
 import jokeHandler from "./handlers/joke.handler";
 import createCronJob from "./services/cron-job.service";
 import unsubscribe from "./handlers/unsubscribe.handler";
+import createKeepServerUpJob from "./services/keep-server-cron-job";
 
 const botToken = process.env.TELEGRAM_BOT_TOKEN;
 if (!botToken) {
@@ -24,6 +25,7 @@ const bot = new TelegramBot(botToken, { polling: true });
 dbConnect();
 const job = createCronJob(bot); // Pass the bot object to the cron job
 job.start();
+createKeepServerUpJob.start();
 
 bot.onText(/\/start/, (message) => startHandler(message, bot));
 bot.onText(/\/subscribe/, (message) => subscribe(message, bot));
