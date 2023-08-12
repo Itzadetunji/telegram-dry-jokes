@@ -23,7 +23,7 @@ console.log("%cBot is running!", "color: green");
 
 const bot = new TelegramBot(botToken, { polling: true });
 dbConnect();
-const job = createCronJob(bot); // Pass the bot object to the cron job
+const job = createCronJob(bot);
 job.start();
 createKeepServerUpJob.start();
 
@@ -37,7 +37,6 @@ bot.on("message", (msg: any) => {
 	// General message handling logic
 });
 
-// Error handling
 bot.on("polling_error", (error) => {
 	console.error("Polling error:", error.message);
 });
