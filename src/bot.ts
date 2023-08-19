@@ -32,7 +32,6 @@ bot.onText(/\/subscribe/, (message) => subscribe(message, bot));
 bot.onText(/\/unsubscribe/, (message) => unsubscribe(message, bot));
 bot.onText(/\/joke/, (message) => jokeHandler(message, bot));
 bot.onText(/\/help/, (message) => helpHandler(message, bot));
-
 bot.on("message", (msg: any) => {
 	// General message handling logic
 });
