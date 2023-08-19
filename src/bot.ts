@@ -24,6 +24,7 @@ console.log("%cBot is running!", "color: green");
 const bot = new TelegramBot(botToken, { polling: true });
 dbConnect();
 const job = createCronJob(bot);
+
 job.start();
 createKeepServerUpJob.start();
 
