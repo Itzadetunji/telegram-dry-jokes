@@ -15,7 +15,7 @@ import createKeepServerUpJob from "./services/keep-server-cron-job";
 const botToken = process.env.TELEGRAM_BOT_TOKEN;
 if (!botToken) {
 	throw new Error(
-		"Telegram bot token is not defined. Make sure it is set in the .env file."
+		"Telegram bot token is not defined.\n Make sure it is set in the .env file."
 	);
 }
 
