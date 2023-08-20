@@ -16,9 +16,9 @@ interface IJoke extends Document {
 const jokeSchema = new Schema<IJoke>({
 	text: { type: String, required: true },
 	author: { type: String },
-	category: { type: String, required: true },
 	length: { type: String, enum: Object.values(JokeLength), required: true },
 	isDark: { type: Boolean, default: false },
+	category: { type: String, required: true },
 });
 
 const JokeModel = model<IJoke>("Joke", jokeSchema);
