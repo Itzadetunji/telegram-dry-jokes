@@ -26,3 +26,4 @@ const startHandler = async (msg: Message, bot: TelegramBot) => {
 };
 
 export default startHandler;
+// Me here
