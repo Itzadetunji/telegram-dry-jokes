@@ -20,3 +20,4 @@ const subscribe = async (message: Message, bot: TelegramBot) => {
 };
 
 export default subscribe;
+// Still me here
