@@ -7,4 +7,4 @@ const helpHandler = (msg: Message, bot: TelegramBot) => {
 };
 
 export default helpHandler;
-//how far
+//how far I am good
