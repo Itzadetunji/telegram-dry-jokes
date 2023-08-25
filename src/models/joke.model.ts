@@ -24,3 +24,4 @@ const jokeSchema = new Schema<IJoke>({
 const JokeModel = model<IJoke>("Joke", jokeSchema);
 
 export default JokeModel;
+// Joke model
