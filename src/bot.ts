@@ -18,6 +18,7 @@ if (!botToken) {
 		"Telegram bot token is not defined.\n Make sure it is set in the .env file."
 	);
 }
+//An update was made here
 
 console.log("%cBot is running!", "color: green");
 
